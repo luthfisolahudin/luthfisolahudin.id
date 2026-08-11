@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Luthfi Solahudin">
-  <defs>
-    <clipPath id="tile">
-      <rect width="64" height="64" rx="12" />
-    </clipPath>
-  </defs>
-  <g clip-path="url(#tile)">
-    <rect width="64" height="64" fill="#9b442d" />
-    <path fill="#f4eee5" d="M64 0v64H0z" />
-  </g>
+  <rect width="64" height="64" rx="12" fill="#292622" />
+  <circle cx="25" cy="25" r="14" fill="#9b442d" />
+  <circle cx="39" cy="39" r="14" fill="#f4eee5" />
 </svg>
