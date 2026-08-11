@@ -6,14 +6,42 @@ const posts = await getPublishedPosts();
 ---
 
 <BaseLayout>
-  <main>
+  <main class="home-page">
     <section class="intro" aria-labelledby="intro-heading">
-      <h1 id="intro-heading">CTO at Aixel and Head of Engineering at NoEffort.</h1>
+      <h1 id="intro-heading">I build products, teams, and the systems that help both grow.</h1>
+      <div class="intro-summary">
+        <p>I'm Luthfi, currently CTO at Aixel and Head of Technology at NoEffort.</p>
+        <p>I care about turning ambitious ideas into useful products and creating the clarity engineering teams need to do their best work.</p>
+      </div>
     </section>
 
-    <section class="content-section" id="writing" aria-labelledby="writing-heading">
-      <h2 class="section-heading" id="writing-heading">Writing</h2>
-      {posts.length > 0 ? (
+    <section class="content-section current-section" id="currently" aria-labelledby="currently-heading">
+      <header class="section-intro">
+        <h2 class="section-heading" id="currently-heading">Currently</h2>
+      </header>
+      <ol class="experience-list">
+        <li>
+          <p class="role-company">Aixel</p>
+          <div>
+            <h3>Chief Technology Officer</h3>
+            <p>Leading technology and engineering.</p>
+          </div>
+        </li>
+        <li>
+          <p class="role-company">NoEffort</p>
+          <div>
+            <h3>Head of Technology</h3>
+            <p>Leading technology and how products get built.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    {posts.length > 0 && (
+      <section class="content-section writing-section" id="writing" aria-labelledby="writing-heading">
+        <header class="section-intro">
+          <h2 class="section-heading" id="writing-heading">Writing</h2>
+        </header>
         <ol class="post-list">
           {posts.map((post) => (
             <li>
@@ -23,26 +51,19 @@ const posts = await getPublishedPosts();
             </li>
           ))}
         </ol>
-      ) : (
-        <p class="empty-state">No posts yet.</p>
-      )}
-    </section>
+      </section>
+    )}
 
-    <section class="content-section" id="experience" aria-labelledby="experience-heading">
-      <h2 class="section-heading" id="experience-heading">Experience</h2>
-      <ol class="experience-list">
-        <li><span>Aixel</span><span>CTO</span></li>
-        <li><span>NoEffort</span><span>Head of Engineering</span></li>
-      </ol>
-    </section>
-
-    <section class="content-section" id="contact" aria-labelledby="contact-heading">
-      <h2 class="section-heading" id="contact-heading">Contact</h2>
-      <ul class="contact-links">
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-copy">
+        <h2 id="contact-heading">Let's start a conversation.</h2>
+        <p>If you'd like to talk about products, engineering, or building teams, send me a note.</p>
+        <a class="contact-email" href="mailto:contact@luthfisolahudin.id">contact@luthfisolahudin.id</a>
+      </div>
+      <ul class="contact-links" aria-label="Social links">
         <li><a href="https://github.com/luthfisolahudin">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/luthfisolahudin/">LinkedIn</a></li>
-        <li><a href="mailto:contact@luthfisolahudin.id">contact@luthfisolahudin.id</a></li>
-        <li><a href="/rss.xml">RSS</a></li>
+        {posts.length > 0 && <li><a href="/rss.xml">RSS</a></li>}
       </ul>
     </section>
   </main>
