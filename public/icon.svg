@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Luthfi Solahudin">
   <rect width="64" height="64" rx="12" fill="#292622" />
-  <circle cx="25" cy="25" r="14" fill="#9b442d" />
-  <circle cx="39" cy="39" r="14" fill="#f4eee5" />
+  <circle cx="24" cy="32" r="14" fill="#9b442d" />
+  <circle cx="40" cy="32" r="14" fill="#f4eee5" />
 </svg>
