@@ -1,1 +1,388 @@
-@import "tailwindcss";
+:root {
+  color-scheme: light;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #242424;
+  background: #f6f6f3;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --background: #f6f6f3;
+  --surface: #ffffff;
+  --text: #242424;
+  --muted: #6b6b68;
+  --line: #d8d8d2;
+  --accent: #1f4d3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+::selection {
+  color: var(--surface);
+  background: var(--accent);
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 3px solid #d49a27;
+  outline-offset: 4px;
+}
+
+.site-shell {
+  width: min(100% - 2rem, 60rem);
+  margin: 0 auto;
+  padding: 1.25rem 0 2rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1rem;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-header nav a {
+  text-decoration: none;
+}
+
+main {
+  padding: 5.5rem 0 2rem;
+}
+
+.intro {
+  max-width: 48rem;
+  padding-bottom: 5.5rem;
+}
+
+.intro h1 {
+  max-width: 25ch;
+  margin: 0;
+  font-size: clamp(2.35rem, 6vw, 4rem);
+  font-weight: 650;
+  letter-spacing: -0.06em;
+  line-height: 1.02;
+}
+
+.content-section {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0 4.75rem;
+}
+
+.section-heading {
+  margin: 0 0 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.empty-state {
+  margin: 0;
+  color: var(--muted);
+}
+
+.post-list,
+.experience-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-list {
+  display: grid;
+}
+
+.post-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem 2rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  padding: 1.25rem 0;
+}
+
+.post-list li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.post-list a {
+  font-size: 1.15rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.post-description {
+  grid-column: 1;
+  margin: -0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.post-date {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.experience-list {
+  display: grid;
+}
+
+.experience-list li {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) 2fr;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+.experience-list li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.experience-list span:first-child {
+  font-weight: 650;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-links a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.article-page {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 5rem 0 4rem;
+}
+
+.article-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem;
+}
+
+.article-header h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+
+.article-description {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.article-body {
+  max-width: 72ch;
+  padding-top: 2.75rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.article-body :first-child {
+  margin-top: 0;
+}
+
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  margin: 2.5rem 0 0.75rem;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.2;
+}
+
+.article-body h2 {
+  font-size: 1.6rem;
+}
+
+.article-body h3 {
+  font-size: 1.3rem;
+}
+
+.article-body p,
+.article-body ul,
+.article-body ol,
+.article-body blockquote,
+.article-body pre {
+  margin: 1.25rem 0;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.5rem;
+}
+
+.article-body blockquote {
+  border-left: 3px solid var(--accent);
+  margin-left: 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+.article-body code {
+  padding: 0.12em 0.3em;
+  border-radius: 0.2em;
+  background: #e9e9e3;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.article-body pre {
+  overflow-x: auto;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.2rem;
+  background: #eeeeea;
+  font-size: 0.9em;
+  line-height: 1.55;
+}
+
+.article-body pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-back {
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--accent);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+@media (max-width: 44rem) {
+  .site-shell {
+    width: min(100% - 1.5rem, 60rem);
+    padding-top: 1rem;
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .site-header nav {
+    gap: 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  main {
+    padding-top: 4rem;
+  }
+
+  .intro {
+    padding-bottom: 4rem;
+  }
+
+  .content-section {
+    padding-bottom: 3.5rem;
+  }
+
+  .post-list li {
+    display: block;
+  }
+
+  .post-description,
+  .post-date {
+    display: block;
+    margin: 0.35rem 0 0;
+  }
+
+  .experience-list li {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .article-page {
+    padding-top: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

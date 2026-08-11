@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDate, getPostSlug, getPublishedPosts } from '../lib/writing';
+
+const posts = await getPublishedPosts();
+---
+
+<BaseLayout>
+  <main>
+    <section class="intro" aria-labelledby="intro-heading">
+      <h1 id="intro-heading">CTO at Aixel and Head of Engineering at NoEffort.</h1>
+    </section>
+
+    <section class="content-section" id="writing" aria-labelledby="writing-heading">
+      <h2 class="section-heading" id="writing-heading">Writing</h2>
+      {posts.length > 0 ? (
+        <ol class="post-list">
+          {posts.map((post) => (
+            <li>
+              <a href={`/writing/${getPostSlug(post)}/`}>{post.data.title}</a>
+              <time class="post-date" datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
+              <p class="post-description">{post.data.description}</p>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p class="empty-state">No posts yet.</p>
+      )}
+    </section>
+
+    <section class="content-section" id="experience" aria-labelledby="experience-heading">
+      <h2 class="section-heading" id="experience-heading">Experience</h2>
+      <ol class="experience-list">
+        <li><span>Aixel</span><span>CTO</span></li>
+        <li><span>NoEffort</span><span>Head of Engineering</span></li>
+      </ol>
+    </section>
+
+    <section class="content-section" id="contact" aria-labelledby="contact-heading">
+      <h2 class="section-heading" id="contact-heading">Contact</h2>
+      <ul class="contact-links">
+        <li><a href="https://github.com/luthfisolahudin">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/luthfisolahudin/">LinkedIn</a></li>
+        <li><a href="mailto:contact@luthfisolahudin.id">contact@luthfisolahudin.id</a></li>
+        <li><a href="/rss.xml">RSS</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Luthfi Solahudin.</p>
+  </footer>
+</BaseLayout>

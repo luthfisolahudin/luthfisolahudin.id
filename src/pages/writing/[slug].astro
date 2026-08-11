@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate, getPostSlug } from '../../lib/writing';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing', ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: getPostSlug(post) },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const canonical = `/writing/${getPostSlug(post)}/`;
+---
+
+<BaseLayout
+  title={`${post.data.title} - Luthfi Solahudin`}
+  description={post.data.description}
+  canonical={canonical}
+  type="article"
+  publishedAt={post.data.publishedAt}
+  updatedAt={post.data.updatedAt}
+>
+  <main class="article-page">
+    <article>
+      <header class="article-header">
+        <h1>{post.data.title}</h1>
+        <p class="article-description">{post.data.description}</p>
+        <div class="article-meta">
+          <time datetime={post.data.publishedAt.toISOString()}>Published {formatDate(post.data.publishedAt)}</time>
+          {post.data.updatedAt && (
+            <time datetime={post.data.updatedAt.toISOString()}>Updated {formatDate(post.data.updatedAt)}</time>
+          )}
+        </div>
+      </header>
+      <div class="article-body">
+        <Content />
+      </div>
+    </article>
+    <a class="article-back" href="/#writing">Back to writing</a>
+  </main>
+</BaseLayout>

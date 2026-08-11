@@ -1,3 +1,9 @@
+# Dependencies and builds
+node_modules
+dist
+.astro
+.pi
+
 # Logs
 logs
 *.log
@@ -7,12 +13,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Environment files
+.env
+.env.*
+!.env.example
 
-# Editor directories and files
+# Editor files
 .vscode/*
 !.vscode/extensions.json
 .idea
