@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>luthfisolahudin/renovate-config"],
+  "packageRules": [
+    {
+      "description": "astro check does not support TypeScript 7 yet",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7.0.0"
+    }
+  ]
+}
